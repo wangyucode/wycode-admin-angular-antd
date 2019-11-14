@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-card-header fxLayoutAlign="space-between">
+    <mat-card-title>错误统计</mat-card-title>
+    <div>
+      <mat-form-field class="error-interval">
+        <mat-select placeholder="时间区间" [(value)]="day" (valueChange)="onQueryChange()">
+          <mat-option value="30">30天</mat-option>
+          <mat-option value="7">7天</mat-option>
+          <mat-option value="1">1天</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="error-interval">
+        <mat-select placeholder="错误码" [(value)]="code" (valueChange)="onQueryChange()">
+          <mat-option value="500">500</mat-option>
+          <mat-option value="404">404</mat-option>
+          <mat-option value="403">403</mat-option>
+          <mat-option value="400">400</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-card-header>
+  <mat-divider></mat-divider>
+  <mat-card-content>
+    <table mat-table [dataSource]="dataSource" class="error-table">
+      <ng-container matColumnDef="path">
+        <th mat-header-cell *matHeaderCellDef> Path</th>
+        <td mat-cell *matCellDef="let element"> {{element.path}} </td>
+      </ng-container>
+      <ng-container matColumnDef="method">
+        <th mat-header-cell *matHeaderCellDef> Method</th>
+        <td mat-cell *matCellDef="let element"> {{element.method}} </td>
+      </ng-container>
+      <ng-container matColumnDef="count">
+        <th mat-header-cell *matHeaderCellDef> Count</th>
+        <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
