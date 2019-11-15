@@ -15,10 +15,10 @@ export interface ErrorElement {
 })
 export class ErrorStatistComponent implements OnInit {
 
-  displayedColumns: string[] = ['path', 'method', 'count'];
   dataSource: ErrorElement[];
   day = '30';
   code = '500';
+  loading = true;
 
   constructor(private service: DashboardService) {
   }
@@ -28,8 +28,10 @@ export class ErrorStatistComponent implements OnInit {
   }
 
   onQueryChange() {
+    this.loading = true;
     this.service.getError(this.day, this.code).subscribe((data: JsonResult<ErrorElement[]>) => {
       this.dataSource = data.data;
+      this.loading = false;
     });
   }
 
