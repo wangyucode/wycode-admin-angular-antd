@@ -7,6 +7,11 @@ const routes: Routes = [
     path: 'dashboard',
     loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
     data: { breadcrumb: 'Dashboard' }
+  },
+  {
+    path: 'dota',
+    loadChildren: './pages/dota/dota.module#DotaModule',
+    data: { breadcrumb: 'Dota' }
   }
 ];
 
