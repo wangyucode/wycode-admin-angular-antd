@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VersionComponent implements OnInit {
 
-  constructor() { }
+  version = '版本号';
+  modifyDate = '2019-11-25 17:55:58';
+  iconType = 'edit';
+  isEditing = false;
+
+  constructor() {
+  }
 
   ngOnInit() {
+  }
+
+  buttonClick() {
+    if (!this.isEditing) {
+      this.isEditing = true;
+      this.iconType = 'check';
+    } else {
+      this.isEditing = false;
+    }
   }
 
 }

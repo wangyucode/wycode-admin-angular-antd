@@ -1,1 +1,9 @@
-<p>version works!</p>
+<nz-card>
+  <nz-input-group nzAddOnBefore="版本号：" nzSearch [nzAddOnAfter]="suffixIconButton">
+    <input type="text" nz-input [(ngModel)]="version" [disabled]="!isEditing" />
+  </nz-input-group>
+  <ng-template #suffixIconButton>
+    <button nz-button nzType="primary" nzSearch (click)="buttonClick()"><i nz-icon [nzType]="iconType"></i></button>
+  </ng-template>
+  <div class="text-modify-date">修改时间：{{modifyDate}}</div>
+</nz-card>
