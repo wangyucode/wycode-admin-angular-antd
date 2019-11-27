@@ -10,12 +10,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
+import { LoginComponent } from './component/login/login.component';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,9 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule
   ],
+  entryComponents: [LoginComponent],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

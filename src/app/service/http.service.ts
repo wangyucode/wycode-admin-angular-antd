@@ -6,13 +6,15 @@ import { map } from 'rxjs/operators';
 import { of } from 'rxjs/internal/observable/of';
 import { CacheService } from './cache.service';
 import { AuthService } from './auth.service';
+import { NzModalService } from 'ng-zorro-antd';
+import { LoginComponent } from '../component/login/login.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
 
-  constructor(private http: HttpClient, private cache: CacheService, private auth: AuthService) {
+  constructor(private http: HttpClient, private cache: CacheService, private auth: AuthService, private modalService: NzModalService) {
   }
 
   get(path: string, params?: HttpParams): Observable<any> {
@@ -31,7 +33,7 @@ export class HttpService {
     }
   }
 
-  post(path: string, params?: HttpParams) {
+  post(path: string, params?: HttpParams): Observable<any> {
     if (this.auth.user) {
       return this.http.post(environment.baseUrl + path, params).pipe(
         map((data) => {
@@ -40,6 +42,12 @@ export class HttpService {
           return data;
         })
       );
+    } else {
+      this.modalService.create({
+        nzContent: LoginComponent,
+        nzFooter: null
+      });
+      return of(null);
     }
   }
 }
