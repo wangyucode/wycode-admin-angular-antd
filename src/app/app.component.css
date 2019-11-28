@@ -18,10 +18,14 @@
 
 .header-trigger {
   height: 64px;
-  padding: 20px 24px;
+  padding: 0 24px;
   font-size: 20px;
   cursor: pointer;
   transition: all .3s, padding 0s;
+}
+
+.header-user {
+  padding: 0 24px;
 }
 
 .trigger:hover {
@@ -63,6 +67,9 @@ nz-header {
 
 .app-header {
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   height: 64px;
   padding: 0;
   background: #fff;

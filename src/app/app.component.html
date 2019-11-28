@@ -14,7 +14,7 @@
       <li nz-submenu nzOpen nzTitle="Dota" nzIcon="wechat">
         <ul>
           <li nz-menu-item nzMatchRouter>
-            <a  routerLink="/dota/version">Version</a>
+            <a routerLink="/dota/version">Version</a>
           </li>
         </ul>
       </li>
@@ -26,6 +26,9 @@
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
           <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
         </span>
+        <div class="header-user">
+          <nz-avatar nzIcon="user"></nz-avatar>
+        </div>
       </div>
     </nz-header>
     <div class="app-content-footer">
