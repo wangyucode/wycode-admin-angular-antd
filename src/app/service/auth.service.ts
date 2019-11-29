@@ -7,7 +7,7 @@ import { JsonResult } from './type';
 const LOGIN_PATH = '/admin/user/login';
 const AUTH_KEY = 'AUTH_KEY';
 
-interface AuthUser {
+export interface AuthUser {
   avatar: string;
   token: string;
   type: string;

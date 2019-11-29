@@ -26,8 +26,13 @@
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
           <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
         </span>
-        <div class="header-user">
-          <nz-avatar nzIcon="user"></nz-avatar>
+        <div class="header-user" nz-dropdown [nzDropdownMenu]="menu" nzPlacement="bottomRight" [nzTrigger]="userTrigger">
+          <nz-avatar nzIcon="user" [nzSrc]="userAvatar"></nz-avatar>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu>
+              <li nz-menu-item (click)="logout">Logout</li>
+            </ul>
+          </nz-dropdown-menu>
         </div>
       </div>
     </nz-header>
