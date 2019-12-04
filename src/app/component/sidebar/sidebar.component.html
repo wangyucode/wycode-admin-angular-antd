@@ -6,12 +6,12 @@
 </div>
 <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
   <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'dashboard' : ''" nzMatchRouter>
-    <a routerLink="/dashboard"><i nz-icon nzType="dashboard"></i>{{isCollapsed ? '' : 'Dashboard'}}</a>
+    <a routerLink="/dashboard"><i nz-icon nzType="dashboard"></i>{{isCollapsed ? '' : '仪表盘'}}</a>
   </li>
   <li nz-submenu nzOpen nzTitle="Dota" nzIcon="wechat">
     <ul>
       <li nz-menu-item nzMatchRouter>
-        <a routerLink="/dota/version">Version</a>
+        <a routerLink="/dota/version">版本管理</a>
       </li>
     </ul>
   </li>

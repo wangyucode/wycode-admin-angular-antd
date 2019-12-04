@@ -8,7 +8,7 @@ const routes: Routes = [
     {
       path: 'version',
       component: VersionComponent,
-      data: { breadcrumb: 'Version' }
+      data: { breadcrumb: '版本管理' }
     }
   ]
 ;

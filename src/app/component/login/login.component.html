@@ -1,16 +1,16 @@
 <form nz-form class="login-form" (ngSubmit)="submitForm()" #loginForm="ngForm">
-  <h1 class="login-form-title"><img src="https://wycode.cn/img/logo_48.png" alt="logo" /> Login</h1>
+  <h1 class="login-form-title"><img src="https://wycode.cn/img/logo_48.png" alt="logo" /> 登录</h1>
   <nz-form-item>
     <nz-form-control nzErrorTip="Please input your username!" nzHasFeedback>
       <nz-input-group nzPrefixIcon="user">
-        <input name="username" type="text" nz-input required placeholder="Username" [(ngModel)]="username"/>
+        <input name="username" type="text" nz-input required placeholder="用户名" [(ngModel)]="username"/>
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-control nzErrorTip="Please input your Password!" nzHasFeedback>
       <nz-input-group nzPrefixIcon="lock">
-        <input name="password" type="password" nz-input required placeholder="Password" [(ngModel)]="password"/>
+        <input name="password" type="password" nz-input required placeholder="密码" [(ngModel)]="password"/>
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
@@ -18,7 +18,7 @@
   <nz-form-item>
     <nz-form-control>
       <button nz-button class="login-form-button" nzType="primary" type="submit" nzSize="large"
-              [disabled]="!loginForm.form.valid" [nzLoading]="loading">Login
+              [disabled]="!loginForm.form.valid" [nzLoading]="loading">登录
       </button>
     </nz-form-control>
   </nz-form-item>

@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
-    data: { breadcrumb: 'Dashboard' }
+    data: { breadcrumb: '仪表盘' }
   },
   {
     path: 'dota',

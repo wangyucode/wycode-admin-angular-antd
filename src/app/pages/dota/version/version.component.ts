@@ -1,7 +1,6 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { DotaService } from '../../../service/dota.service';
 import { JsonResult } from '../../../service/type';
-import { HttpHeaders } from '@angular/common/http';
 
 export interface Version {
   version: string;
@@ -51,6 +50,9 @@ export class VersionComponent implements AfterViewInit {
 
   private submit() {
     this.service.setVersion(this.version).subscribe((data: JsonResult<Version>) => {
+      this.iconSpin = false;
+      this.iconType = 'edit';
+    }, () => {
       this.iconSpin = false;
       this.iconType = 'edit';
     });
