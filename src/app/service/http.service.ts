@@ -33,7 +33,8 @@ export class HttpService {
           this.cache.setData({ path, params }, data);
           console.log('get:' + path, data);
           return data;
-        })
+        }),
+        catchError(this.handleError)
       );
     }
   }
@@ -65,7 +66,7 @@ export class HttpService {
     if (error instanceof HttpErrorResponse) {
       error = error.error;
     }
-    this.notification.error('业务错误：', error.error);
+    this.notification.error('请求错误：', error.error);
     return throwError(error);
   }
 }
