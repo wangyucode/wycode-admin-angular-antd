@@ -1,0 +1,13 @@
+<div class="app-header">
+        <span class="header-trigger" (click)="toggle()">
+          <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+        </span>
+  <div class="header-user" (click)="accountClick()">
+    <nz-avatar nzIcon="user" [nzSrc]="userAvatar"></nz-avatar>
+  </div>
+  <div *ngIf="showDropdown" class="header-user-dropdown">
+    <ul nz-menu class="ant-dropdown-menu">
+      <li nz-menu-item class="ant-dropdown-menu-item" (click)="logout()">Logout</li>
+    </ul>
+  </div>
+</div>

@@ -34,7 +34,11 @@ export class AuthService {
 
   public set user(user: AuthUser) {
     this.mUser = user;
-    window.localStorage.setItem(AUTH_KEY, JSON.stringify(user));
+    if (user) {
+      window.localStorage.setItem(AUTH_KEY, JSON.stringify(user));
+    } else {
+      window.localStorage.removeItem(AUTH_KEY);
+    }
     this.userEmit.emit(user);
   }
 

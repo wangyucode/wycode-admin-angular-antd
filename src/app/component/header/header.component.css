@@ -1,0 +1,52 @@
+.app-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  padding: 0;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+}
+
+.header-trigger {
+  height: 64px;
+  padding: 0 24px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all .3s, padding 0s;
+}
+
+.header-user {
+  position: relative;
+  padding: 0 12px;
+}
+
+.header-user:hover {
+  background-color: #f0f2f5;
+}
+
+.header-user-dropdown {
+  position: absolute;
+  /*margin-top: 4px;*/
+  /*right: 18px;*/
+  animation: show-dropdown 0.3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes show-dropdown {
+  from {
+    right: -24px;
+    top: 34px;
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+    right: 24px;
+    top: 68px;
+  }
+}
+
+.trigger:hover {
+  color: #1890ff;
+}

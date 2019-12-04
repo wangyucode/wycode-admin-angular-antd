@@ -22,24 +22,7 @@
   </nz-sider>
   <nz-layout>
     <nz-header>
-      <div class="app-header">
-        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-          <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
-        </span>
-        <div class="header-user"
-             nz-dropdown
-             [nzDropdownMenu]="userAvatar?menu:null"
-             nzPlacement="bottomRight"
-             nzTrigger="click"
-             (click)="accountClick()">
-          <nz-avatar nzIcon="user" [nzSrc]="userAvatar"></nz-avatar>
-          <nz-dropdown-menu #menu="nzDropdownMenu">
-            <ul nz-menu>
-              <li nz-menu-item (click)="logout()">Logout</li>
-            </ul>
-          </nz-dropdown-menu>
-        </div>
-      </div>
+      <app-header (collapseChange)="isCollapsed=$event"></app-header>
     </nz-header>
     <div class="app-content-footer">
       <nz-content class="app-content">

@@ -16,21 +16,7 @@
   box-shadow: 2px 0 6px rgba(0, 21, 41, .35);
 }
 
-.header-trigger {
-  height: 64px;
-  padding: 0 24px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all .3s, padding 0s;
-}
 
-.header-user {
-  padding: 0 24px;
-}
-
-.trigger:hover {
-  color: #1890ff;
-}
 
 .sidebar-logo {
   position: relative;
@@ -63,17 +49,6 @@ nz-header {
   padding: 0;
   width: 100%;
   z-index: 2;
-}
-
-.app-header {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-  padding: 0;
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
 }
 
 .app-content-footer {
