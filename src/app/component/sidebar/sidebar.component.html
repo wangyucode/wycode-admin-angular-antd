@@ -1,0 +1,18 @@
+<div class="sidebar-logo">
+  <a href="https://wycode.cn/" target="_blank">
+    <img src="https://wycode.cn/img/logo_48.png" alt="logo">
+    <h1>wy-admin</h1>
+  </a>
+</div>
+<ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+  <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'dashboard' : ''" nzMatchRouter>
+    <a routerLink="/dashboard"><i nz-icon nzType="dashboard"></i>{{isCollapsed ? '' : 'Dashboard'}}</a>
+  </li>
+  <li nz-submenu nzOpen nzTitle="Dota" nzIcon="wechat">
+    <ul>
+      <li nz-menu-item nzMatchRouter>
+        <a routerLink="/dota/version">Version</a>
+      </li>
+    </ul>
+  </li>
+</ul>
