@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -40,8 +40,10 @@ export class HttpService {
   }
 
   post(path: string, params?: HttpParams): Observable<any> {
-    if (this.auth.user) {
-      return this.http.post<JsonResult<any>>(environment.baseUrl + path, params).pipe(
+    const user = this.auth.user;
+    if (user) {
+      const headers = new HttpHeaders({ 'X-Auth-Token': user.token });
+      return this.http.post<JsonResult<any>>(environment.baseUrl + path, params, { headers }).pipe(
         map((data) => {
           if (!data.success) {
             throwError(data);
@@ -68,5 +70,5 @@ export class HttpService {
     }
     this.notification.error('请求错误：', error.error);
     return throwError(error);
-  }
+  };
 }

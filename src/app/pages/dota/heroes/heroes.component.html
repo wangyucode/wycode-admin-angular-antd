@@ -1,0 +1,29 @@
+<nz-collapse>
+  <nz-collapse-panel nzHeader="力量型" nzActive="true">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let hero of strengthHeroes" href="{{'/dota/hero/'+hero.name}}" class="hero-link">
+        <img src="{{hero.imageUrl}}" class="hero-img" alt="{{hero.name}}" />
+        <span class="hero-name">{{hero.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+  <nz-collapse-panel nzHeader="智力型">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let hero of intelligenceHeroes" href="{{'/dota/hero/'+hero.name}}" class="hero-link">
+        <img src="{{hero.imageUrl}}" class="hero-img" alt="{{hero.name}}" />
+        <span class="hero-name">{{hero.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+  <nz-collapse-panel nzHeader="敏捷型">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let hero of agileHeroes" href="{{'/dota/hero/'+hero.name}}" class="hero-link">
+        <img src="{{hero.imageUrl}}" class="hero-img" alt="{{hero.name}}" />
+        <span class="hero-name">{{hero.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+</nz-collapse>
+<button class="btn-add" nz-button nzType="primary" nzSize="large"><i nz-icon nzType="plus"></i>新增</button>
+
+

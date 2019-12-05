@@ -19,4 +19,8 @@ export class DotaService {
       .append('version', version);
     return this.http.post('/admin/dota/version', params);
   }
+
+  getHeroes() {
+    return this.http.get('/dota/heroes');
+  }
 }
