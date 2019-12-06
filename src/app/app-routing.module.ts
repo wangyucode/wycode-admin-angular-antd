@@ -5,7 +5,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/dashboard' },
   {
     path: 'dashboard',
-    loadChildren: () => import('./pages/dashboard/dashboard.module').then(m => m.DashboardModule),
+    loadChildren: './pages/dashboard/dashboard.module#DashboardModule',
     data: { breadcrumb: '仪表盘' }
   },
   {
