@@ -5,7 +5,7 @@
   <div class="header-user" (click)="accountClick()">
     <nz-avatar nzIcon="user" [nzSrc]="userAvatar"></nz-avatar>
   </div>
-  <div *ngIf="showDropdown" class="header-user-dropdown">
+  <div class="header-user-dropdown" [class.show]="showDropdown">
     <ul nz-menu class="ant-dropdown-menu">
       <li nz-menu-item class="ant-dropdown-menu-item" (click)="logout()">登出</li>
     </ul>

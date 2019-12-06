@@ -15,6 +15,11 @@ const routes: Routes = [
       path: 'heroes',
       component: HeroesComponent,
       data: { breadcrumb: '英雄列表' }
+    },
+    {
+      path: 'hero/:name',
+      component: HeroesComponent,
+      data: { breadcrumb: '英雄详情' }
     }
   ]
 ;

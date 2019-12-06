@@ -28,23 +28,18 @@
 
 .header-user-dropdown {
   position: absolute;
-  /*margin-top: 4px;*/
-  /*right: 18px;*/
-  animation: show-dropdown 0.3s;
-  animation-fill-mode: forwards;
+  right: -24px;
+  top: 34px;
+  transform: scale(0);
+  visibility: hidden;
+  transition: all 0.3s;
 }
 
-@keyframes show-dropdown {
-  from {
-    right: -24px;
-    top: 34px;
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-    right: 24px;
-    top: 68px;
-  }
+.header-user-dropdown.show {
+  transform: scale(1);
+  right: 24px;
+  top: 68px;
+  visibility: visible;
 }
 
 .trigger:hover {
