@@ -11,7 +11,7 @@ let config = {
   //  privateKey: '/path/to/key.pem', // Optional.
   //  passphrase: 'passphrase',       // Optional.
   //  agent: '/path/to/agent.sock',   // Optional, path to the ssh-agent socket.
-  localDir: 'dist', // Required, Absolute or relative to cwd.
+  localDir: 'dist/wycode-admin-angular-antd', // Required, Absolute or relative to cwd.
   remoteDir: '/var/www/admin/' // Required, Absolute path only.
 };
 
