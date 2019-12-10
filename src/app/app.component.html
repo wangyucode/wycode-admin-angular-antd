@@ -11,7 +11,9 @@
       <nz-content class="app-content">
         <nz-breadcrumb [nzAutoGenerate]="true"></nz-breadcrumb>
         <div class="inner-content">
-          <router-outlet></router-outlet>
+          <nz-spin [nzSpinning]="isRouterLoading" class="router-spin">
+            <router-outlet></router-outlet>
+          </nz-spin>
         </div>
       </nz-content>
       <nz-footer>

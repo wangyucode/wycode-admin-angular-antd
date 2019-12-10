@@ -44,4 +44,8 @@ nz-footer {
   flex: 1;
 }
 
+.router-spin{
+  min-height: 320px;
+}
+
 
