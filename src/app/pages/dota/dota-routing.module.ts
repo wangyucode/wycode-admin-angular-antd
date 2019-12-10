@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VersionComponent } from './version/version.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 
 const routes: Routes = [
@@ -18,8 +19,8 @@ const routes: Routes = [
     },
     {
       path: 'hero/:name',
-      component: HeroesComponent,
-      data: { breadcrumb: '英雄详情' }
+      component: HeroDetailComponent,
+      data: { breadcrumb: '英雄详情' },
     }
   ]
 ;

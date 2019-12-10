@@ -11,6 +11,7 @@ import { LoginComponent } from './component/login/login.component';
 import { HeaderComponent } from './component/header/header.component';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { SharedModule } from './shared.module';
+import { PageNotFoundComponent } from './component/page-not-found/page-not-found.component';
 
 registerLocaleData(zh);
 
@@ -19,7 +20,8 @@ registerLocaleData(zh);
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

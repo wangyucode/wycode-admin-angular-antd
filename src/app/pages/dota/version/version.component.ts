@@ -16,7 +16,7 @@ export class VersionComponent implements AfterViewInit {
 
   version = '版本号';
   modifyDate = '....-..-..';
-  iconType = 'sync';
+  iconType = 'loading';
   disabled = true;
   iconSpin = true;
 
@@ -41,7 +41,7 @@ export class VersionComponent implements AfterViewInit {
         break;
       case 'check':
         this.disabled = true;
-        this.iconType = 'sync';
+        this.iconType = 'loading';
         this.iconSpin = true;
         this.submit();
         break;
@@ -52,6 +52,7 @@ export class VersionComponent implements AfterViewInit {
     this.service.setVersion(this.version).subscribe((data: JsonResult<Version>) => {
       this.iconSpin = false;
       this.iconType = 'edit';
+      this.modifyDate = data.data.date;
     }, () => {
       this.iconSpin = false;
       this.iconType = 'edit';
