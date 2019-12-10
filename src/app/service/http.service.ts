@@ -8,7 +8,7 @@ import { CacheService } from './cache.service';
 import { AuthService } from './auth.service';
 import { NzModalService, NzNotificationService } from 'ng-zorro-antd';
 import { LoginComponent } from '../component/login/login.component';
-import { JsonResult } from './type';
+import { JsonResult, ServerError } from './type';
 
 @Injectable({
   providedIn: 'root'
@@ -63,12 +63,19 @@ export class HttpService {
     }
   }
 
-  handleError = (error: HttpErrorResponse | JsonResult<any>) => {
+  handleError = (error: HttpErrorResponse | ServerError) => {
     console.error('HttpService::handleError-->', error);
     if (error instanceof HttpErrorResponse) {
       error = error.error;
     }
+    if (error.status === 403) {
+      this.auth.user = null;
+      this.modalService.create({
+        nzContent: LoginComponent,
+        nzFooter: null
+      });
+    }
     this.notification.error('请求错误：', error.error);
     return throwError(error);
-  };
+  }
 }

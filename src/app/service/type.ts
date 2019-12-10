@@ -3,3 +3,10 @@ export interface JsonResult<T> {
   data?: T;
   error?: string;
 }
+
+export interface ServerError extends JsonResult<null> {
+  path: string;
+  status: number;
+  timestamp: Date;
+  message: string;
+}
