@@ -1,0 +1,60 @@
+<form nz-form>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">名称</nz-form-label>
+    <nz-form-control nzSpan="2">
+      <input nz-input required placeholder="名称" [(ngModel)]="ability.name" name="name" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">技能序号</nz-form-label>
+    <nz-form-control nzSpan="1">
+      <input nz-input required placeholder="序号" [(ngModel)]="ability.num" name="num" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">
+      <img  *ngIf="ability.imageUrl" [src]="ability.imageUrl" />
+      {{ability.imageUrl ? '' : '图标'}}
+    </nz-form-label>
+    <nz-form-control nzSpan="10">
+      <input nz-input required placeholder="图标" [(ngModel)]="ability.imageUrl" name="imageUrl" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">冷却时间</nz-form-label>
+    <nz-form-control nzSpan="4">
+      <input nz-input required placeholder="冷却时间" [(ngModel)]="ability.coolDown" name="coolDown" />
+    </nz-form-control>
+    <nz-form-label nzRequired nzSpan="2">魔法消耗</nz-form-label>
+    <nz-form-control nzSpan="4">
+      <input nz-input required placeholder="魔法消耗" [(ngModel)]="ability.magicConsumption" name="magicConsumption" />
+    </nz-form-control>
+
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">描述</nz-form-label>
+    <nz-form-control nzSpan="10">
+        <textarea rows="3" nz-input required placeholder="描述" [(ngModel)]="ability.description"
+                  name="description"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="2">注脚</nz-form-label>
+    <nz-form-control nzSpan="10">
+      <input nz-input placeholder="注脚" [(ngModel)]="ability.annotation" name="annotation" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzSpan="2">提示</nz-form-label>
+    <nz-form-control nzSpan="10">
+      <textarea rows="4" nz-input required placeholder="提示" [(ngModel)]="ability.tips" name="tips"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control nzSpan="18" nzOffset="2">
+      <button nz-button nzType="primary" nzSize="large"><i nz-icon nzType="upload"></i>保存</button>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-divider></nz-divider>
+</form>

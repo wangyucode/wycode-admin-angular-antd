@@ -1,8 +1,6 @@
-nz-page-header{
+.white-background{
+  padding: 12px;
+  background-color: white;
   border: 1px solid rgb(235, 237, 240);
   margin-bottom: 12px;
-}
-
-nz-tabset{
-  background-color: white;
 }

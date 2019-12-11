@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { VersionComponent } from './version/version.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
+import { CreateHeroComponent } from './create-hero/create-hero.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,12 @@ const routes: Routes = [
     {
       path: 'hero',
       component: HeroDetailComponent,
-      data: { breadcrumb: '英雄详情' },
+      data: { breadcrumb: '英雄详情' }
+    },
+    {
+      path: 'hero/create',
+      component: CreateHeroComponent,
+      data: { breadcrumb: '新建英雄' }
     }
   ]
 ;

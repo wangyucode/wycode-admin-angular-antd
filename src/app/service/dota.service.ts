@@ -23,4 +23,10 @@ export class DotaService {
   getHeroes() {
     return this.http.get('/dota/heroes');
   }
+
+  getHeroDetail(heroName: string) {
+    const params = new HttpParams()
+      .append('heroName', heroName);
+    return this.http.get('/dota/heroDetail', params);
+  }
 }
