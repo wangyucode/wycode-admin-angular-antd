@@ -1,1 +1,46 @@
-<p>hero-detail works!</p>
+<nz-tabset>
+  <nz-tab nzTitle="基本">
+    <form nz-form>
+      <nz-form-item>
+        <nz-form-label nzRequired nzSpan="3">名字</nz-form-label>
+        <nz-form-control nzSpan="18">
+          <input nz-input required placeholder="英雄名字" [(ngModel)]="hero.name" name="name" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzRequired nzSpan="3">类型</nz-form-label>
+        <nz-form-control nzSpan="18">
+          <nz-radio-group [(ngModel)]="hero.type" name="type">
+            <label nz-radio nzValue="力量">力量</label>
+            <label nz-radio nzValue="智力">智力</label>
+            <label nz-radio nzValue="敏捷">敏捷</label>
+          </nz-radio-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzSpan="3"><img *ngIf="hero.imageUrl" [src]="hero.imageUrl"
+                                       width="120" />{{hero.imageUrl ? '' : '图片'}}</nz-form-label>
+        <nz-form-control nzSpan="18">
+          <input nz-input required placeholder="英雄图片" [(ngModel)]="hero.imageUrl" name="imageUrl" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label nzSpan="3"><img *ngIf="hero.icon" [src]="hero.icon" />{{hero.icon ? '' : '图标'}}</nz-form-label>
+        <nz-form-control nzSpan="18">
+          <input nz-input required placeholder="英雄图标" [(ngModel)]="hero.icon" name="icon" />
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzSpan="18" nzOffset="3">
+          <button nz-button nzType="primary">保存</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </nz-tab>
+  <nz-tab nzTitle="详情">
+    Content of Tab Pane 2
+  </nz-tab>
+  <nz-tab nzTitle="技能">
+    Content of Tab Pane 3
+  </nz-tab>
+</nz-tabset>

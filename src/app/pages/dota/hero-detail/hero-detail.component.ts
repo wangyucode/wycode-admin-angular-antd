@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Hero } from '../heroes/heroes.component';
 
 @Component({
   selector: 'app-hero-detail',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroDetailComponent implements OnInit {
 
-  constructor() { }
+  hero: Hero;
+  isCreate = true;
+
+  constructor(private route: ActivatedRoute) {
+  }
 
   ngOnInit() {
+    this.route.queryParamMap.subscribe((paramMap: any) => {
+      this.hero = paramMap.params;
+      this.isCreate = !this.hero.name;
+    });
   }
 
 }

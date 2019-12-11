@@ -1,0 +1,12 @@
+nz-tabset{
+  background-color: white;
+}
+
+form{
+  padding: 0 24px;
+}
+
+nz-form-item{
+  display: flex;
+  align-items: center;
+}

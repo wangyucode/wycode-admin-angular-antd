@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DotaService } from '../../../service/dota.service';
 import { JsonResult } from '../../../service/type';
 
-interface Hero {
+export interface Hero {
   name: string;
   imageUrl: string;
   type: string;

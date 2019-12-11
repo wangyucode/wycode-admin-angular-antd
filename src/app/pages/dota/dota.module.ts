@@ -16,8 +16,8 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
     HeroDetailComponent
   ],
   imports: [
-    DotaRoutingModule,
-    SharedModule
+    SharedModule,
+    DotaRoutingModule
   ],
   exports: [DotaComponent]
 })
