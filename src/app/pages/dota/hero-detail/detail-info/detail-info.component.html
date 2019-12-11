@@ -1,0 +1,102 @@
+<form nz-form>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">其它昵称</nz-form-label>
+    <nz-form-control nzSpan="5">
+      <input nz-input required placeholder="其它昵称" [(ngModel)]="heroDetail.otherName" name="otherName" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">背景故事</nz-form-label>
+    <nz-form-control nzSpan="10">
+      <textarea rows="6" nz-input required placeholder="背景故事" [(ngModel)]="heroDetail.story" name="story"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">攻击类型</nz-form-label>
+    <nz-form-control nzSpan="18">
+      <nz-radio-group [(ngModel)]="heroDetail.attackType" name="attackType">
+        <label nz-radio nzValue="近战">近战</label>
+        <label nz-radio nzValue="远程">远程</label>
+      </nz-radio-group>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">攻击速度</nz-form-label>
+    <nz-form-control nzSpan="1">
+      <input nz-input required placeholder="攻击速度" [(ngModel)]="heroDetail.attackSpeed" name="attackSpeed" />
+    </nz-form-control>
+    <nz-form-label nzRequired nzSpan="2">攻击力</nz-form-label>
+    <nz-form-control nzSpan="1">
+      <input nz-input required placeholder="攻击力" [(ngModel)]="heroDetail.attackPower" name="attackPower" />
+    </nz-form-control>
+    <nz-form-label nzRequired nzSpan="2">移动速度</nz-form-label>
+    <nz-form-control nzSpan="1">
+      <input nz-input required placeholder="移动速度" [(ngModel)]="heroDetail.speed" name="speed" />
+    </nz-form-control>
+    <nz-form-label nzRequired nzSpan="2">初始护甲</nz-form-label>
+    <nz-form-control nzSpan="1">
+      <input nz-input required placeholder="初始护甲" [(ngModel)]="heroDetail.armor" name="armor" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">初始力量</nz-form-label>
+    <nz-form-control nzSpan="1">
+      <input nz-input required placeholder="初始力量" [(ngModel)]="heroDetail.strengthStart" name="strengthStart" />
+    </nz-form-control>
+    <nz-form-label nzRequired nzSpan="2">力量成长</nz-form-label>
+    <nz-form-control nzSpan="1">
+      <input nz-input required placeholder="力量成长" [(ngModel)]="heroDetail.strengthGrow" name="strengthGrow" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">初始智力</nz-form-label>
+    <nz-form-control nzSpan="1">
+      <input nz-input required placeholder="初始智力" [(ngModel)]="heroDetail.intelligenceStart"
+             name="intelligenceStart" />
+    </nz-form-control>
+    <nz-form-label nzRequired nzSpan="2">智力成长</nz-form-label>
+    <nz-form-control nzSpan="1">
+      <input nz-input required placeholder="智力成长" [(ngModel)]="heroDetail.intelligenceGrow" name="intelligenceGrow" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">初始敏捷</nz-form-label>
+    <nz-form-control nzSpan="1">
+      <input nz-input required placeholder="初始敏捷" [(ngModel)]="heroDetail.agilityStart" name="agilityStart" />
+    </nz-form-control>
+    <nz-form-label nzRequired nzSpan="2">敏捷成长</nz-form-label>
+    <nz-form-control nzSpan="1">
+      <input nz-input required placeholder="敏捷成长" [(ngModel)]="heroDetail.agilityGrow" name="agilityGrow" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">天赋树</nz-form-label>
+    <nz-form-control nzSpan="3">
+      <input class="talent-left" nz-input required placeholder="25级左" [(ngModel)]="heroDetail.talent25Left"
+             name="talent25Left" />
+      <input class="talent-left" nz-input required placeholder="20级左" [(ngModel)]="heroDetail.talent20Left"
+             name="talent20Left" />
+      <input class="talent-left" nz-input required placeholder="15级左" [(ngModel)]="heroDetail.talent15Left"
+             name="talent15Left" />
+      <input class="talent-left" nz-input required placeholder="10级左" [(ngModel)]="heroDetail.talent10Left"
+             name="talent10Left" />
+    </nz-form-control>
+    <nz-form-control nzSpan="1">
+      <div class="talent-center">25</div>
+      <div class="talent-center">20</div>
+      <div class="talent-center">15</div>
+      <div class="talent-center">10</div>
+    </nz-form-control>
+    <nz-form-control nzSpan="3">
+      <input nz-input required placeholder="25级右" [(ngModel)]="heroDetail.talent25Right" name="talent25Right" />
+      <input nz-input required placeholder="20级右" [(ngModel)]="heroDetail.talent20Right" name="talent20Right" />
+      <input nz-input required placeholder="15级右" [(ngModel)]="heroDetail.talent15Right" name="talent15Right" />
+      <input nz-input required placeholder="10级右" [(ngModel)]="heroDetail.talent10Right" name="talent10Right" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzOffset="2">
+      <button nz-button nzType="primary" nzSize="large"><i nz-icon nzType="upload"></i>保存</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

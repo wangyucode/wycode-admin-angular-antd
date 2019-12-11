@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { DotaService } from '../../../service/dota.service';
 import { JsonResult } from '../../../service/type';
 
-interface Hero {
-  name: string;
-  imageUrl: string;
-  type: string;
-  icon: string;
+export interface Hero {
+  name?: string;
+  imageUrl?: string;
+  type?: string;
+  icon?: string;
 }
 
 @Component({

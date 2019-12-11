@@ -1,1 +1,17 @@
-<p>hero-detail works!</p>
+<nz-page-header (nzBack)="onBack()" nzBackIcon [nzTitle]="hero.name" [nzGhost]="false">
+  <nz-page-header-extra>
+    <button nz-button nzType="danger"><i nz-icon nzType="delete"></i>删除英雄</button>
+  </nz-page-header-extra>
+</nz-page-header>
+
+<nz-tabset>
+  <nz-tab nzTitle="基本">
+    <app-hero-basic-info [hero]="hero"></app-hero-basic-info>
+  </nz-tab>
+  <nz-tab nzTitle="详情" [nzDisabled]="loading">
+    <app-hero-detail-info *ngIf="!loading" [heroDetail]="heroDetail"></app-hero-detail-info>
+  </nz-tab>
+  <nz-tab nzTitle="技能" [nzDisabled]="loading">
+    <app-hero-ability-info *ngIf="!loading" [abilities]="heroAbilities"></app-hero-ability-info>
+  </nz-tab>
+</nz-tabset>

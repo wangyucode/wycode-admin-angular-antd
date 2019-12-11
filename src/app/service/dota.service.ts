@@ -17,10 +17,16 @@ export class DotaService {
   setVersion(version: string) {
     const params = new HttpParams()
       .append('version', version);
-    return this.http.post('/admin/dota/version', params);
+    return this.http.post('/admin/dota/version', params, '/dota/version');
   }
 
   getHeroes() {
     return this.http.get('/dota/heroes');
+  }
+
+  getHeroDetail(heroName: string) {
+    const params = new HttpParams()
+      .append('heroName', heroName);
+    return this.http.get('/dota/heroDetail', params);
   }
 }
