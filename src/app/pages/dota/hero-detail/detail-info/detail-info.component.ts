@@ -1,29 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { HeroDetail } from '../../../../service/type';
 
-export interface HeroDetail {
-  agilityGrow?: string;
-  agilityStart?: number;
-  armor?: number;
-  attackPower?: number;
-  attackSpeed?: number;
-  attackType?: string;
-  intelligenceGrow?: string;
-  intelligenceStart?: number;
-  name?: string;
-  otherName?: string;
-  speed?: number;
-  story?: string;
-  strengthGrow?: string;
-  strengthStart?: number;
-  talent10Left?: string;
-  talent10Right?: string;
-  talent15Left?: string;
-  talent15Right?: string;
-  talent20Left?: string;
-  talent20Right?: string;
-  talent25Left?: string;
-  talent25Right?: string;
-}
 
 @Component({
   selector: 'app-hero-detail-info',

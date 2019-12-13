@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 import { HttpService } from './http.service';
+import { Hero, HeroDetail } from './type';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class DotaService {
   setVersion(version: string) {
     const params = new HttpParams()
       .append('version', version);
-    return this.http.post('/admin/dota/version', params, '/dota/version');
+    return this.http.post('/admin/dota/version', params, ['/dota/version']);
   }
 
   getHeroes() {
@@ -28,5 +29,13 @@ export class DotaService {
     const params = new HttpParams()
       .append('heroName', heroName);
     return this.http.get('/dota/heroDetail', params);
+  }
+
+  setHeroBasic(heroBasic: Hero) {
+    return this.http.post('/admin/dota/hero/basicInfo', heroBasic, ['/dota/heroes']);
+  }
+
+  setHeroDetail(heroDetail: HeroDetail) {
+    return this.http.post('/admin/dota/hero/detailInfo', heroDetail, ['/dota/heroDetail']);
   }
 }

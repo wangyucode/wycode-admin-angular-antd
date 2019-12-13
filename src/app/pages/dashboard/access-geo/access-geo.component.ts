@@ -1,15 +1,12 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { DashboardService } from '../../../service/dashboard.service';
-import { JsonResult } from '../../../service/type';
+import { AppUse, JsonResult } from '../../../service/type';
 import { Chart } from '@antv/g2';
 import { View } from '@antv/data-set';
 // @ts-ignore
 import worldMap from 'src/assets/world.json';
 
-interface AppUse {
-  app: string;
-  use: number;
-}
+
 
 @Component({
   selector: 'app-access-geo',

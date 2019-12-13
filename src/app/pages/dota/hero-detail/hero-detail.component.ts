@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Hero } from '../heroes/heroes.component';
 import { DotaService } from '../../../service/dota.service';
-import { HeroDetail } from './detail-info/detail-info.component';
-import { JsonResult } from '../../../service/type';
-import { HeroAbility } from './ability-info/ability-info.component';
+import { Hero, HeroAbility, HeroDetail, JsonResult } from '../../../service/type';
 
 @Component({
   selector: 'app-hero-detail',
@@ -28,6 +25,8 @@ export class HeroDetailComponent implements OnInit {
       this.hero = paramMap.params;
       this.loading = true;
       this.dotaService.getHeroDetail(this.hero.name).subscribe((data: JsonResult<HeroDetail & { abilities: HeroAbility[] }>) => {
+        data.data = data.data || { abilities: [] };
+        data.data.abilities = data.data.abilities || [];
         this.heroDetail = data.data;
         this.heroAbilities = data.data.abilities;
         this.loading = false;

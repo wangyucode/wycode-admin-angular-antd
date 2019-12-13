@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../../../service/dashboard.service';
-import { JsonResult } from '../../../service/type';
+import { ErrorElement, JsonResult } from '../../../service/type';
 
-export interface ErrorElement {
-  path: string;
-  method: string;
-  count: number;
-}
 
 @Component({
   selector: 'app-error-statist',

@@ -2,3 +2,7 @@ nz-form-item{
   display: flex;
   align-items: center;
 }
+
+nz-alert{
+  margin-bottom: 24px;
+}

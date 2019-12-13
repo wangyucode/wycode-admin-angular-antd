@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HeroAbility } from '../ability-info.component';
+import { HeroAbility } from '../../../../../service/type';
 
 @Component({
   selector: 'app-ability-form',

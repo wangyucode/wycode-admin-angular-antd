@@ -1,17 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-export interface HeroAbility {
-  annotation?: string;
-  attributes?: Map<string, string>;
-  coolDown?: string;
-  description?: string;
-  heroName?: string;
-  imageUrl?: string;
-  magicConsumption?: string;
-  name?: string;
-  num?: number;
-  tips?: string;
-}
+import { HeroAbility } from '../../../../service/type';
 
 @Component({
   selector: 'app-hero-ability-info',

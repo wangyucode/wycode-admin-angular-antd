@@ -1,11 +1,6 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { DotaService } from '../../../service/dota.service';
-import { JsonResult } from '../../../service/type';
-
-export interface Version {
-  version: string;
-  date: string;
-}
+import { JsonResult, Version } from '../../../service/type';
 
 @Component({
   selector: 'app-version',
@@ -18,7 +13,6 @@ export class VersionComponent implements AfterViewInit {
   modifyDate = '....-..-..';
   iconType = 'loading';
   disabled = true;
-  iconSpin = true;
 
   constructor(private service: DotaService) {
   }
@@ -27,7 +21,6 @@ export class VersionComponent implements AfterViewInit {
     this.service.getVersion().subscribe((data: JsonResult<Version>) => {
       this.version = data.data.version;
       this.modifyDate = data.data.date;
-      this.iconSpin = false;
       this.iconType = 'edit';
     });
   }
@@ -37,12 +30,10 @@ export class VersionComponent implements AfterViewInit {
       case 'edit':
         this.disabled = false;
         this.iconType = 'check';
-        this.iconSpin = false;
         break;
       case 'check':
         this.disabled = true;
         this.iconType = 'loading';
-        this.iconSpin = true;
         this.submit();
         break;
     }
@@ -50,11 +41,9 @@ export class VersionComponent implements AfterViewInit {
 
   private submit() {
     this.service.setVersion(this.version).subscribe((data: JsonResult<Version>) => {
-      this.iconSpin = false;
       this.iconType = 'edit';
       this.modifyDate = data.data.date;
     }, () => {
-      this.iconSpin = false;
       this.iconType = 'edit';
     });
   }
