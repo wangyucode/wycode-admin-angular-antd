@@ -7,7 +7,7 @@
 </div>
 
 <div class="white-background" [ngSwitch]="current">
-  <app-hero-basic-info *ngSwitchCase="0"></app-hero-basic-info>
+  <app-hero-basic-info *ngSwitchCase="0" isCreate="true"></app-hero-basic-info>
   <app-hero-detail-info *ngSwitchCase="1"></app-hero-detail-info>
   <app-hero-ability-info *ngSwitchCase="2"></app-hero-ability-info>
 </div>

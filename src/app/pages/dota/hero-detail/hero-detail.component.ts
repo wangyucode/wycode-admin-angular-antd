@@ -22,7 +22,7 @@ export class HeroDetailComponent implements OnInit {
 
   ngOnInit() {
     this.route.queryParamMap.subscribe((paramMap: any) => {
-      this.hero = paramMap.params;
+      this.hero = { ...paramMap.params };
       this.loading = true;
       this.dotaService.getHeroDetail(this.hero.name).subscribe((data: JsonResult<HeroDetail & { abilities: HeroAbility[] }>) => {
         data.data = data.data || { abilities: [] };
@@ -39,4 +39,12 @@ export class HeroDetailComponent implements OnInit {
     this.router.navigate(['/dota/heroes']);
   }
 
+  delete() {
+    this.loading = true;
+    this.dotaService.deleteHero(this.hero.name).subscribe(() => {
+      this.onBack();
+    }, () => {
+      this.loading = false;
+    });
+  }
 }

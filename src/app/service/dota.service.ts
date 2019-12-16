@@ -31,6 +31,12 @@ export class DotaService {
     return this.http.get('/dota/heroDetail', params);
   }
 
+  deleteHero(heroName: string) {
+    const params = new HttpParams()
+      .append('name', heroName);
+    return this.http.post('/admin/dota/hero/delete', params, ['/dota/heroes']);
+  }
+
   setHeroBasic(heroBasic: Hero) {
     return this.http.post('/admin/dota/hero/basicInfo', heroBasic, ['/dota/heroes']);
   }

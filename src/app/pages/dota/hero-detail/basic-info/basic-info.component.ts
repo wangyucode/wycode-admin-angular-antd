@@ -11,6 +11,8 @@ export class BasicInfoComponent {
 
   @Input()
   hero: Hero = {};
+  @Input()
+  isCreate: boolean;
 
   loading = false;
   error = undefined;
@@ -19,16 +21,15 @@ export class BasicInfoComponent {
   }
 
   submitForm() {
-    // this.loading = true;
-    // this.error = undefined;
-    // this.dotaService.setHeroBasic(this.hero).subscribe((result: JsonResult<Hero>) => {
-    //   this.loading = false;
-    //   console.log(result);
-    // }, (error: JsonResult<null>) => {
-    //   this.loading = false;
-    //   this.error = error.error;
-    // });
+    this.loading = true;
+    this.error = undefined;
+    this.dotaService.setHeroBasic(this.hero).subscribe((result: JsonResult<Hero>) => {
+      this.loading = false;
+      console.log(result);
+    }, (error: JsonResult<null>) => {
+      this.loading = false;
+      this.error = error.error;
+    });
     console.log(this.hero);
   }
-
 }

@@ -2,7 +2,7 @@
   <nz-form-item>
     <nz-form-label nzRequired nzSpan="2">英雄名字</nz-form-label>
     <nz-form-control nzSpan="2">
-      <input nz-input required placeholder="英雄名字" [(ngModel)]="hero.name" name="name"/>
+      <input nz-input required placeholder="英雄名字" [(ngModel)]="hero.name" name="name" [disabled]="!isCreate" />
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
@@ -21,7 +21,7 @@
       {{hero.imageUrl ? '' : '英雄图片'}}
     </nz-form-label>
     <nz-form-control nzSpan="10">
-      <input nz-input required placeholder="英雄图片" [(ngModel)]="hero.imageUrl" name="imageUrl"/>
+      <input nz-input required placeholder="英雄图片" [(ngModel)]="hero.imageUrl" name="imageUrl" />
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
@@ -30,10 +30,12 @@
       {{hero.imageUrl ? '' : '英雄图标'}}
     </nz-form-label>
     <nz-form-control nzSpan="10">
-      <input nz-input required placeholder="英雄图标" [(ngModel)]="hero.icon" name="icon"/>
+      <input nz-input required placeholder="英雄图标" [(ngModel)]="hero.icon" name="icon" />
     </nz-form-control>
   </nz-form-item>
-  <nz-alert *ngIf="error" nzType="error" [nzMessage]="error"></nz-alert>
+  <nz-form-control nzOffset="2">
+    <nz-alert *ngIf="error" nzType="error" [nzMessage]="error"></nz-alert>
+  </nz-form-control>
   <nz-form-item>
     <nz-form-control nzOffset="2">
       <button nz-button nzType="primary" nzSize="large" [disabled]="!form.form.valid" type="submit"
