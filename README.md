@@ -1,5 +1,5 @@
-# https://wycode.cn/admin/ [![Build Status](https://travis-ci.com/wangyucode/wycode-admin-angular-antd.svg?branch=master)](https://travis-ci.com/wangyucode/wycode-admin-angular-antd)
-This project is a admin website for wycode: [https://wycode.cn/admin/](https://wycode.cn/admin/)
+# 🔧https://wycode.cn/admin/  [![Build Status](https://travis-ci.com/wangyucode/wycode-admin-angular-antd.svg?branch=master)](https://travis-ci.com/wangyucode/wycode-admin-angular-antd)
+This project is an admin website: [https://wycode.cn/admin/](https://wycode.cn/admin/)
 
 It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 

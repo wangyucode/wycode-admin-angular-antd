@@ -7,7 +7,13 @@
 </div>
 
 <div class="white-background" [ngSwitch]="current">
-  <app-hero-basic-info *ngSwitchCase="0" isCreate="true"></app-hero-basic-info>
-  <app-hero-detail-info *ngSwitchCase="1"></app-hero-detail-info>
-  <app-hero-ability-info *ngSwitchCase="2"></app-hero-ability-info>
+  <app-hero-basic-info *ngSwitchCase="0"
+                       isCreate="true"
+                       [hero]="hero"
+                       (saveSuccess)="current = 1"></app-hero-basic-info>
+  <app-hero-detail-info *ngSwitchCase="1"
+                        (saveSuccess)="current = 2"
+                        [heroDetail]="{name:hero.name}"></app-hero-detail-info>
+  <app-hero-ability-info *ngSwitchCase="2"
+                         [heroName]="hero.name"></app-hero-ability-info>
 </div>

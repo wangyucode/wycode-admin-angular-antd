@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DotaService } from '../../../../service/dota.service';
 import { Hero, JsonResult } from '../../../../service/type';
+import { NzNotificationService } from 'ng-zorro-antd';
 
 @Component({
   selector: 'app-hero-basic-info',
@@ -13,23 +14,22 @@ export class BasicInfoComponent {
   hero: Hero = {};
   @Input()
   isCreate: boolean;
+  @Output()
+  saveSuccess = new EventEmitter();
 
   loading = false;
-  error = undefined;
 
-  constructor(private dotaService: DotaService) {
+  constructor(private dotaService: DotaService, private notification: NzNotificationService) {
   }
 
   submitForm() {
     this.loading = true;
-    this.error = undefined;
     this.dotaService.setHeroBasic(this.hero).subscribe((result: JsonResult<Hero>) => {
       this.loading = false;
-      console.log(result);
-    }, (error: JsonResult<null>) => {
+      this.notification.success('成功!', `${result.data.name} 基本信息已保存`);
+      this.saveSuccess.emit();
+    }, () => {
       this.loading = false;
-      this.error = error.error;
     });
-    console.log(this.hero);
   }
 }

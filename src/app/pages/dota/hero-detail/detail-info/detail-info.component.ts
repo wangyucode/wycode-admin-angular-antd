@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { HeroDetail } from '../../../../service/type';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { HeroDetail, JsonResult } from '../../../../service/type';
+import { DotaService } from '../../../../service/dota.service';
+import { NzNotificationService } from 'ng-zorro-antd';
 
 
 @Component({
@@ -7,15 +9,28 @@ import { HeroDetail } from '../../../../service/type';
   templateUrl: './detail-info.component.html',
   styleUrls: ['./detail-info.component.css']
 })
-export class DetailInfoComponent implements OnInit {
+export class DetailInfoComponent {
 
   @Input()
   heroDetail: HeroDetail = {};
+  @Output()
+  saveSuccess = new EventEmitter();
 
-  constructor() {
+  loading = false;
+
+  constructor(private dotaService: DotaService, private notification: NzNotificationService) {
   }
 
-  ngOnInit() {
+  submitForm() {
+    this.loading = true;
+    this.dotaService.setHeroDetail(this.heroDetail).subscribe((result: JsonResult<HeroDetail>) => {
+      this.loading = false;
+      this.notification.success('成功!', `${result.data.name} 详细信息已保存`);
+      this.saveSuccess.emit();
+    }, () => {
+      this.loading = false;
+    });
   }
+
 
 }

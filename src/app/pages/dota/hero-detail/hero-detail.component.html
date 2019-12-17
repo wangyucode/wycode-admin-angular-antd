@@ -16,6 +16,6 @@
     <app-hero-detail-info *ngIf="!loading" [heroDetail]="heroDetail"></app-hero-detail-info>
   </nz-tab>
   <nz-tab nzTitle="技能" [nzDisabled]="loading">
-    <app-hero-ability-info *ngIf="!loading" [abilities]="heroAbilities"></app-hero-ability-info>
+    <app-hero-ability-info *ngIf="!loading" [abilities]="heroAbilities" [heroName]="hero.name"></app-hero-ability-info>
   </nz-tab>
 </nz-tabset>

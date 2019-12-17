@@ -1,2 +1,3 @@
-<app-ability-form *ngFor="let ability of abilities" [ability]="ability"></app-ability-form>
+<app-ability-form *ngFor="let ability of abilities; let i=index" [ability]="ability"
+                  (deleted)="abilities.splice(i,1)"></app-ability-form>
 <button nz-button nzType="primary" nzSize="large" (click)="add()"><i nz-icon nzType="plus"></i>新增技能</button>
