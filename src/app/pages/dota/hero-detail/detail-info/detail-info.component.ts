@@ -1,44 +1,36 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { HeroDetail, JsonResult } from '../../../../service/type';
+import { DotaService } from '../../../../service/dota.service';
+import { NzNotificationService } from 'ng-zorro-antd';
 
-export interface HeroDetail {
-  agilityGrow?: string;
-  agilityStart?: number;
-  armor?: number;
-  attackPower?: number;
-  attackSpeed?: number;
-  attackType?: string;
-  intelligenceGrow?: string;
-  intelligenceStart?: number;
-  name?: string;
-  otherName?: string;
-  speed?: number;
-  story?: string;
-  strengthGrow?: string;
-  strengthStart?: number;
-  talent10Left?: string;
-  talent10Right?: string;
-  talent15Left?: string;
-  talent15Right?: string;
-  talent20Left?: string;
-  talent20Right?: string;
-  talent25Left?: string;
-  talent25Right?: string;
-}
 
 @Component({
   selector: 'app-hero-detail-info',
   templateUrl: './detail-info.component.html',
   styleUrls: ['./detail-info.component.css']
 })
-export class DetailInfoComponent implements OnInit {
+export class DetailInfoComponent {
 
   @Input()
   heroDetail: HeroDetail = {};
+  @Output()
+  saveSuccess = new EventEmitter();
 
-  constructor() {
+  loading = false;
+
+  constructor(private dotaService: DotaService, private notification: NzNotificationService) {
   }
 
-  ngOnInit() {
+  submitForm() {
+    this.loading = true;
+    this.dotaService.setHeroDetail(this.heroDetail).subscribe((result: JsonResult<HeroDetail>) => {
+      this.loading = false;
+      this.notification.success('成功!', `${result.data.name} 详细信息已保存`);
+      this.saveSuccess.emit();
+    }, () => {
+      this.loading = false;
+    });
   }
+
 
 }

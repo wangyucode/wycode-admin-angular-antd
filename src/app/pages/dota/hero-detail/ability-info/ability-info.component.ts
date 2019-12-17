@@ -1,36 +1,23 @@
-import { Component, Input, OnInit } from '@angular/core';
-
-export interface HeroAbility {
-  annotation?: string;
-  attributes?: Map<string, string>;
-  coolDown?: string;
-  description?: string;
-  heroName?: string;
-  imageUrl?: string;
-  magicConsumption?: string;
-  name?: string;
-  num?: number;
-  tips?: string;
-}
+import { Component, Input } from '@angular/core';
+import { HeroAbility } from '../../../../service/type';
 
 @Component({
   selector: 'app-hero-ability-info',
   templateUrl: './ability-info.component.html',
   styleUrls: ['./ability-info.component.css']
 })
-export class AbilityInfoComponent implements OnInit {
+export class AbilityInfoComponent {
 
   @Input()
   abilities: HeroAbility[] = [];
+  @Input()
+  heroName: string;
 
   constructor() {
   }
 
-  ngOnInit() {
-  }
-
   add() {
-    this.abilities.push({});
+    this.abilities.push({ heroName: this.heroName });
   }
 
 }

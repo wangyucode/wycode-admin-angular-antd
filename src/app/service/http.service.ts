@@ -39,7 +39,7 @@ export class HttpService {
     }
   }
 
-  post(path: string, params?: HttpParams, getPath?: string): Observable<any> {
+  post(path: string, params?: HttpParams | object, resetPaths?: string[]): Observable<any> {
     const user = this.auth.user;
     if (user) {
       const headers = new HttpHeaders({ 'X-Auth-Token': user.token });
@@ -48,7 +48,9 @@ export class HttpService {
           if (!data.success) {
             throwError(data);
           }
-          this.cache.resetPathCache(getPath);
+          if (resetPaths) {
+            resetPaths.forEach(resetPath => this.cache.resetPathCache(resetPath));
+          }
           console.log('post:' + path, data);
           return data;
         }),
