@@ -76,4 +76,20 @@ export interface HeroAbility {
   num?: number;
   tips?: string;
 }
+
+export interface DotaItem {
+  key?: string;
+  type?: string;
+  cname?: string;
+  name?: string;
+  lore?: string;
+  img?: string;
+  notes?: string;
+  desc?: string;
+  cost?: number;
+  mc?: string;
+  cd?: string;
+  components?: string;
+  attrs?: string;
+}
 // dota end

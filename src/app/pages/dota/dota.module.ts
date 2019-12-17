@@ -11,6 +11,7 @@ import { DetailInfoComponent } from './hero-detail/detail-info/detail-info.compo
 import { AbilityInfoComponent } from './hero-detail/ability-info/ability-info.component';
 import { AbilityFormComponent } from './hero-detail/ability-info/ability-form/ability-form.component';
 import { CreateHeroComponent } from './create-hero/create-hero.component';
+import { ItemsComponent } from './itemes/items.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CreateHeroComponent } from './create-hero/create-hero.component';
     DetailInfoComponent,
     AbilityInfoComponent,
     AbilityFormComponent,
-    CreateHeroComponent
+    CreateHeroComponent,
+    ItemsComponent
   ],
   imports: [
     SharedModule,

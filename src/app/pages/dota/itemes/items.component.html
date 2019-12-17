@@ -1,0 +1,111 @@
+<h2>基础物品</h2>
+<nz-collapse>
+  <nz-collapse-panel nzHeader="消耗品" nzActive="true">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let item of consumables" routerLink="/dota/hero" [queryParams]=""
+         class="hero-link">
+        <img [src]="item.img" class="hero-img" alt="{{item.name}}" />
+        <span class="hero-name">{{item.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+  <nz-collapse-panel nzHeader="属性">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let item of attributes" routerLink="/dota/hero" [queryParams]=""
+         class="hero-link">
+        <img [src]="item.img" class="hero-img" alt="{{item.name}}" />
+        <span class="hero-name">{{item.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+  <nz-collapse-panel nzHeader="军备">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let item of arms" routerLink="/dota/hero" [queryParams]=""
+         class="hero-link">
+        <img [src]="item.img" class="hero-img" alt="{{item.name}}" />
+        <span class="hero-name">{{item.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+  <nz-collapse-panel nzHeader="奥术">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let item of arcane" routerLink="/dota/hero" [queryParams]=""
+         class="hero-link">
+        <img [src]="item.img" class="hero-img" alt="{{item.name}}" />
+        <span class="hero-name">{{item.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+</nz-collapse>
+<h2>升级物品</h2>
+<nz-collapse>
+  <nz-collapse-panel nzHeader="常用" nzActive="true">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let item of commons" routerLink="/dota/hero" [queryParams]=""
+         class="hero-link">
+        <img [src]="item.img" class="hero-img" alt="{{item.name}}" />
+        <span class="hero-name">{{item.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+  <nz-collapse-panel nzHeader="辅助">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let item of assists" routerLink="/dota/hero" [queryParams]=""
+         class="hero-link">
+        <img [src]="item.img" class="hero-img" alt="{{item.name}}" />
+        <span class="hero-name">{{item.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+  <nz-collapse-panel nzHeader="法器">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let item of multipliers" routerLink="/dota/hero" [queryParams]=""
+         class="hero-link">
+        <img [src]="item.img" class="hero-img" alt="{{item.name}}" />
+        <span class="hero-name">{{item.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+  <nz-collapse-panel nzHeader="防具">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let item of armors" routerLink="/dota/hero" [queryParams]=""
+         class="hero-link">
+        <img [src]="item.img" class="hero-img" alt="{{item.name}}" />
+        <span class="hero-name">{{item.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+  <nz-collapse-panel nzHeader="武器">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let item of weapons" routerLink="/dota/hero" [queryParams]=""
+         class="hero-link">
+        <img [src]="item.img" class="hero-img" alt="{{item.name}}" />
+        <span class="hero-name">{{item.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+  <nz-collapse-panel nzHeader="圣物">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let item of halidoms" routerLink="/dota/hero" [queryParams]=""
+         class="hero-link">
+        <img [src]="item.img" class="hero-img" alt="{{item.name}}" />
+        <span class="hero-name">{{item.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+</nz-collapse>
+<h2>升级物品</h2>
+<nz-collapse>
+  <nz-collapse-panel nzHeader="神秘商店" nzActive="true">
+    <nz-spin class="hero-grid" [nzSpinning]="loading">
+      <a *ngFor="let item of secrets" routerLink="/dota/hero" [queryParams]=""
+         class="hero-link">
+        <img [src]="item.img" class="hero-img" alt="{{item.name}}" />
+        <span class="hero-name">{{item.name}}</span>
+      </a>
+    </nz-spin>
+  </nz-collapse-panel>
+</nz-collapse>
+<a nz-button nzType="primary" nzSize="large" routerLink="/dota/hero/create"><i nz-icon nzType="plus"></i>新增</a>
+
+

@@ -54,4 +54,9 @@ export class DotaService {
       .append('name', abilityName);
     return this.http.post('/admin/dota/deleteAbility', params, ['/dota/heroDetail']);
   }
+
+  getItems() {
+    return this.http.get('/dota/items');
+  }
+
 }
