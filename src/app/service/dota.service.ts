@@ -59,4 +59,16 @@ export class DotaService {
     return this.http.get('/dota/items');
   }
 
+  getItemDetail(itemKey: string) {
+    const params = new HttpParams()
+      .append('itemKey', itemKey);
+    return this.http.get('/dota/itemDetail', params);
+  }
+
+  deleteItem(itemKey: string) {
+    const params = new HttpParams()
+      .append('itemKey', itemKey);
+    return this.http.post('/admin/dota/item/delete', params, ['/dota/items']);
+  }
+
 }

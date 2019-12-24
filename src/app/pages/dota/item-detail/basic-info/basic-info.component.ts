@@ -1,0 +1,59 @@
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { DotaService } from '../../../../service/dota.service';
+import { ADVANCE_ITEM_TYPES, BASIC_ITEM_TYPES, DotaItem, SECRET_ITEM_TYPES } from '../../../../service/type';
+import { NzNotificationService } from 'ng-zorro-antd';
+
+@Component({
+  selector: 'app-item-basic-info',
+  templateUrl: './basic-info.component.html',
+  styleUrls: ['./basic-info.component.css']
+})
+export class BasicInfoComponent implements OnInit {
+
+  @Input()
+  item: DotaItem = {};
+  @Input()
+  isCreate: boolean;
+  @Output()
+  saveSuccess = new EventEmitter();
+
+  loading = false;
+
+  types = BASIC_ITEM_TYPES;
+
+  constructor(private dotaService: DotaService, private notification: NzNotificationService) {
+  }
+
+  ngOnInit(): void {
+    this.cnameChange();
+  }
+
+  cnameChange(): void {
+    switch (this.item.cname) {
+      case '基础物品':
+        this.types = BASIC_ITEM_TYPES;
+        break;
+      case '升级物品':
+        this.types = ADVANCE_ITEM_TYPES;
+        break;
+      case '神秘商店':
+        this.types = SECRET_ITEM_TYPES;
+        break;
+      default:
+        this.types = BASIC_ITEM_TYPES;
+        break;
+    }
+  }
+
+  submitForm() {
+    this.loading = true;
+    // this.dotaService.setHeroBasic(this.hero).subscribe((result: JsonResult<Hero>) => {
+    //   this.loading = false;
+    //   this.notification.success('成功!', `${result.data.name} 基本信息已保存`);
+    //   this.saveSuccess.emit();
+    // }, () => {
+    //   this.loading = false;
+    // });
+  }
+
+}

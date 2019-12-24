@@ -1,0 +1,21 @@
+<nz-page-header (nzBack)="onBack()" nzBackIcon [nzTitle]="item.name" [nzGhost]="false">
+  <nz-page-header-extra>
+    <button nz-button nzType="danger" nz-popconfirm nzPopconfirmTitle="确认删除 {{item.name}} 的所有信息？"
+            nzPopconfirmPlacement="bottomRight"
+            (nzOnConfirm)="delete()"
+            [nzLoading]="loading"><i nz-icon nzType="delete"></i>删除物品
+    </button>
+  </nz-page-header-extra>
+</nz-page-header>
+
+<nz-tabset>
+  <nz-tab nzTitle="基本">
+    <app-item-basic-info [item]="item"></app-item-basic-info>
+  </nz-tab>
+  <nz-tab nzTitle="属性" [nzDisabled]="loading">
+    <app-item-attr-info *ngIf="!loading" [item]="item"></app-item-attr-info>
+  </nz-tab>
+  <nz-tab nzTitle="技能" [nzDisabled]="loading">
+    <!--    <app-hero-ability-info *ngIf="!loading" [abilities]="heroAbilities" [heroName]="hero.name"></app-hero-ability-info>-->
+  </nz-tab>
+</nz-tabset>

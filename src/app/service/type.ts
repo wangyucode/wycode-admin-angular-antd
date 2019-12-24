@@ -11,6 +11,7 @@ export interface ServerError extends JsonResult<null> {
   timestamp: Date;
   message: string;
 }
+
 // common end
 
 // dashboard start
@@ -24,6 +25,7 @@ export interface ErrorElement {
   method: string;
   count: number;
 }
+
 // dashboard end
 
 // dota start
@@ -85,11 +87,15 @@ export interface DotaItem {
   lore?: string;
   img?: string;
   notes?: string;
-  desc?: string;
+  desc?: object;
   cost?: number;
   mc?: string;
   cd?: string;
-  components?: string;
-  attrs?: string;
+  components?: object;
+  attrs?: object;
 }
+
+export const BASIC_ITEM_TYPES = ['消耗品', '属性', '军备', '奥术'];
+export const ADVANCE_ITEM_TYPES = ['常用', '辅助', '法器', '防具', '武器', '圣物'];
+export const SECRET_ITEM_TYPES = ['神秘商店'];
 // dota end

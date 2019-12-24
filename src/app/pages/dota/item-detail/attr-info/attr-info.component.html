@@ -1,0 +1,32 @@
+<!--<app-item-attr-form *ngFor="let attr of item.attrs; let i=index" [attr]="attr"-->
+<!--                  (deleted)="item.attrs.delete(attr[0])"></app-item-attr-form>-->
+<form nz-form #form="ngForm">
+  <nz-form-item *ngFor="let attr of attrs;let i=index">
+    <nz-form-label nzRequired nzSpan="2">{{attr.key}}</nz-form-label>
+    <nz-form-control nzSpan="2">
+      <input nz-input required placeholder="value" [(ngModel)]="attr.value" [name]="attr.key" />
+    </nz-form-control>
+    <nz-form-control nzSpan="2">
+      <button class="btn-delete" nz-button nzType="danger" (click)="attrs.splice(i,1)"><i nz-icon nzType="delete"></i>删除
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzOffset="2">
+      <button nz-button nzType="dashed" nzSize="large" (click)="inputModalVisible = true;inputKey=null">
+        <i nz-icon nzType="plus"></i>添加
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzOffset="2">
+      <button nz-button nzType="primary" nzSize="large" [disabled]="!form.form.valid" type="submit"
+              [nzLoading]="loading"><i nz-icon nzType="upload"></i>保存
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+<nz-modal [(nzVisible)]="inputModalVisible" nzTitle="请输入属性名称" [nzOkDisabled]="!inputKey"
+          (nzOnOk)="attrs.push({key:inputKey,value:''});inputModalVisible=false" (nzOnCancel)="inputModalVisible=false">
+  <input nz-input required placeholder="属性名称" [(ngModel)]="inputKey" name="key" />
+</nz-modal>

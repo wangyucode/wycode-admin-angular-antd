@@ -9,7 +9,6 @@ import { DotaItem, JsonResult } from '../../../service/type';
 })
 export class ItemsComponent implements OnInit {
 
-
   consumables: DotaItem[];
   attributes: DotaItem[];
   arms: DotaItem[];
@@ -30,16 +29,20 @@ export class ItemsComponent implements OnInit {
   ngOnInit() {
     this.dotaService.getItems().subscribe((data: JsonResult<DotaItem[]>) => {
       console.log(data);
-      this.consumables = data.data.filter((item) => item.type === '消耗品');
-      this.attributes = data.data.filter((item) => item.type === '属性');
-      this.arms = data.data.filter((item) => item.type === '军备');
-      this.arcane = data.data.filter((item) => item.type === '奥术');
-      this.commons = data.data.filter((item) => item.type === '常用');
-      this.assists = data.data.filter((item) => item.type === '辅助');
-      this.multipliers = data.data.filter((item) => item.type === '法器');
-      this.armors = data.data.filter((item) => item.type === '防具');
-      this.weapons = data.data.filter((item) => item.type === '武器');
-      this.halidoms = data.data.filter((item) => item.type === '圣物');
+      const basicItems = data.data.filter((item) => item.cname === '基础物品');
+      this.consumables = basicItems.filter((item) => item.type === '消耗品');
+      this.attributes = basicItems.filter((item) => item.type === '属性');
+      this.arms = basicItems.filter((item) => item.type === '军备');
+      this.arcane = basicItems.filter((item) => item.type === '奥术');
+
+      const advanceItems = data.data.filter((item) => item.cname === '升级物品');
+      this.commons = advanceItems.filter((item) => item.type === '常用');
+      this.assists = advanceItems.filter((item) => item.type === '辅助');
+      this.multipliers = advanceItems.filter((item) => item.type === '法器');
+      this.armors = advanceItems.filter((item) => item.type === '防具');
+      this.weapons = advanceItems.filter((item) => item.type === '武器');
+      this.halidoms = advanceItems.filter((item) => item.type === '圣物');
+
       this.secrets = data.data.filter((item) => item.type === '神秘商店');
       this.loading = false;
     });
