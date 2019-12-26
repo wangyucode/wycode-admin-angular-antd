@@ -15,7 +15,10 @@
   <nz-tab nzTitle="属性" [nzDisabled]="loading">
     <app-item-attr-info *ngIf="!loading" [item]="item"></app-item-attr-info>
   </nz-tab>
-  <nz-tab nzTitle="技能" [nzDisabled]="loading">
-    <!--    <app-hero-ability-info *ngIf="!loading" [abilities]="heroAbilities" [heroName]="hero.name"></app-hero-ability-info>-->
+  <nz-tab nzTitle="效果" [nzDisabled]="loading">
+    <app-item-effect-info *ngIf="!loading" [item]="item"></app-item-effect-info>
+  </nz-tab>
+  <nz-tab nzTitle="配件" [nzDisabled]="loading">
+    <app-item-component-info *ngIf="!loading" [item]="item"></app-item-component-info>
   </nz-tab>
 </nz-tabset>

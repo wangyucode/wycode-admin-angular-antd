@@ -1,0 +1,35 @@
+nz-form-item{
+  display: flex;
+  align-items: center;
+}
+
+.btn-delete{
+  margin-left: 12px;
+}
+
+.hero-link {
+  position: relative;
+  display: inline-block;
+  width: 64px;
+  height: 48px;
+  margin: 4px;
+}
+
+.hero-img {
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.hero-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  font-size: 12px;
+  width: 100%;
+  padding: 4px 8px;
+  color: #eee;
+  background: linear-gradient(transparent, black);
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}

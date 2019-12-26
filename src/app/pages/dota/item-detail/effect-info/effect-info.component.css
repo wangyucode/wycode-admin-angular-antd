@@ -1,0 +1,8 @@
+nz-form-item{
+  display: flex;
+  align-items: center;
+}
+
+.btn-delete{
+  margin-left: 12px;
+}

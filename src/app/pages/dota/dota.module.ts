@@ -15,6 +15,8 @@ import { ItemsComponent } from './itemes/items.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
 import { BasicInfoComponent as ItemInfoComponent } from './item-detail/basic-info/basic-info.component';
 import { AttrInfoComponent } from './item-detail/attr-info/attr-info.component';
+import { EffectInfoComponent } from './item-detail/effect-info/effect-info.component';
+import { ComponentInfoComponent } from './item-detail/component-info/component-info.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { AttrInfoComponent } from './item-detail/attr-info/attr-info.component';
     ItemsComponent,
     ItemDetailComponent,
     ItemInfoComponent,
-    AttrInfoComponent
+    AttrInfoComponent,
+    EffectInfoComponent,
+    ComponentInfoComponent
   ],
   imports: [
     SharedModule,

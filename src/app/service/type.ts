@@ -91,7 +91,7 @@ export interface DotaItem {
   cost?: number;
   mc?: string;
   cd?: string;
-  components?: object;
+  components?: string[];
   attrs?: object;
 }
 

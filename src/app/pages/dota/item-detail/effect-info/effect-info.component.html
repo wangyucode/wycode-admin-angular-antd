@@ -1,0 +1,31 @@
+<form nz-form #form="ngForm">
+  <nz-form-item *ngFor="let effect of effects;let i=index">
+    <nz-form-label nzRequired nzSpan="2">{{effect.key}}</nz-form-label>
+    <nz-form-control nzSpan="6">
+      <textarea rows="4" nz-input required [placeholder]="effect.key" [(ngModel)]="effect.value"
+                [name]="effect.key"></textarea>
+    </nz-form-control>
+    <nz-form-control nzSpan="2">
+      <button class="btn-delete" nz-button nzType="danger" (click)="effects.splice(i,1)"><i nz-icon nzType="delete"></i>删除
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzOffset="2">
+      <button nz-button nzType="dashed" nzSize="large" (click)="inputModalVisible = true;inputKey=null">
+        <i nz-icon nzType="plus"></i>添加
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzOffset="2">
+      <button nz-button nzType="primary" nzSize="large" [disabled]="!form.form.valid" type="submit"
+              [nzLoading]="loading"><i nz-icon nzType="upload"></i>保存
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
+<nz-modal [(nzVisible)]="inputModalVisible" nzTitle="请输入效果名称" [nzOkDisabled]="!inputKey"
+          (nzOnOk)="effects.push({key:inputKey,value:''});inputModalVisible=false" (nzOnCancel)="inputModalVisible=false">
+  <input nz-input required placeholder="效果名称" [(ngModel)]="inputKey" name="key" />
+</nz-modal>

@@ -5,15 +5,15 @@ import { KeyValue } from '@angular/common';
 
 
 @Component({
-  selector: 'app-item-attr-info',
-  templateUrl: './attr-info.component.html',
-  styleUrls: ['./attr-info.component.css']
+  selector: 'app-item-effect-info',
+  templateUrl: './effect-info.component.html',
+  styleUrls: ['./effect-info.component.css']
 })
-export class AttrInfoComponent implements OnInit {
+export class EffectInfoComponent implements OnInit {
 
   @Input()
   item: DotaItem = {};
-  attrs: KeyValue<string, string>[] = [];
+  effects: KeyValue<string, string>[] = [];
   loading = false;
   inputModalVisible = false;
   inputKey = null;
@@ -22,8 +22,8 @@ export class AttrInfoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    Object.keys(this.item.attrs).forEach((key) => {
-      this.attrs.push({ key: key, value: this.item.attrs[key] });
+    Object.keys(this.item.desc).forEach((key) => {
+      this.effects.push({ key: key, value: this.item.desc[key] });
     });
   }
 
