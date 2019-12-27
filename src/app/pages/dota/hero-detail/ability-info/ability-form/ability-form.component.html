@@ -13,7 +13,7 @@
   </nz-form-item>
   <nz-form-item>
     <nz-form-label nzRequired nzSpan="2">
-      <img *ngIf="ability.imageUrl" [src]="ability.imageUrl" />
+      <img *ngIf="ability.imageUrl" [src]="ability.imageUrl" width="96" />
       {{ability.imageUrl ? '' : '图标'}}
     </nz-form-label>
     <nz-form-control nzSpan="10">
@@ -50,7 +50,23 @@
       <textarea rows="4" nz-input placeholder="提示" [(ngModel)]="ability.tips" name="tips"></textarea>
     </nz-form-control>
   </nz-form-item>
-
+  <nz-form-item *ngFor="let attr of attributes;let i=index">
+    <nz-form-label nzRequired nzSpan="2">{{attr.key}}</nz-form-label>
+    <nz-form-control nzSpan="3">
+      <input nz-input required placeholder="value" [(ngModel)]="attr.value" [name]="attr.key" />
+    </nz-form-control>
+    <nz-form-control nzSpan="2">
+      <button class="btn-delete" nz-button nzType="danger" (click)="attributes.splice(i,1)"><i nz-icon nzType="delete"></i>删除
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control nzOffset="2">
+      <button nz-button nzType="dashed" nzSize="large" (click)="inputModalVisible = true;inputKey=null" type="button">
+        <i nz-icon nzType="plus"></i>添加技能属性
+      </button>
+    </nz-form-control>
+  </nz-form-item>
   <nz-form-item>
     <nz-form-control nzSpan="18" nzOffset="2">
       <button nz-button nzType="primary"
@@ -71,3 +87,7 @@
   </nz-form-item>
   <nz-divider></nz-divider>
 </form>
+<nz-modal [(nzVisible)]="inputModalVisible" nzTitle="请输入属性名称" [nzOkDisabled]="!inputKey"
+          (nzOnOk)="attributes.push({key:inputKey,value:''});inputModalVisible=false" (nzOnCancel)="inputModalVisible=false">
+  <input nz-input required placeholder="属性名称" [(ngModel)]="inputKey" name="key" />
+</nz-modal>

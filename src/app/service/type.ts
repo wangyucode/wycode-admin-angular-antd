@@ -73,7 +73,7 @@ export interface HeroDetail {
 
 export interface HeroAbility {
   annotation?: string;
-  attributes?: Map<string, string>;
+  attributes?: object;
   coolDown?: string;
   description?: string;
   heroName?: string;
