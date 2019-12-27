@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 import { HttpService } from './http.service';
-import { Hero, HeroAbility, HeroDetail } from './type';
+import { DotaItem, Hero, HeroAbility, HeroDetail } from './type';
 
 @Injectable({
   providedIn: 'root'
@@ -67,8 +67,12 @@ export class DotaService {
 
   deleteItem(itemKey: string) {
     const params = new HttpParams()
-      .append('itemKey', itemKey);
-    return this.http.post('/admin/dota/item/delete', params, ['/dota/items']);
+      .append('key', itemKey);
+    return this.http.post('/admin/dota/deleteItem', params, ['/dota/items']);
+  }
+
+  setItem(item: DotaItem) {
+    return this.http.post('/admin/dota/item', item, ['/dota/items', '/dota/itemDetail']);
   }
 
 }

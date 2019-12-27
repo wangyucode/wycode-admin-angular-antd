@@ -1,8 +1,14 @@
 <form nz-form #form="ngForm" (ngSubmit)="submitForm()">
   <nz-form-item>
+    <nz-form-label nzRequired nzSpan="2">key</nz-form-label>
+    <nz-form-control nzSpan="2">
+      <input nz-input required placeholder="key" [(ngModel)]="item.key" name="key" [disabled]="!isCreate" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
     <nz-form-label nzRequired nzSpan="2">名称</nz-form-label>
     <nz-form-control nzSpan="2">
-      <input nz-input required placeholder="名称" [(ngModel)]="item.name" name="name" [disabled]="!isCreate" />
+      <input nz-input required placeholder="名称" [(ngModel)]="item.name" name="name"/>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
@@ -47,22 +53,22 @@
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label nzRequired nzSpan="2">注脚</nz-form-label>
+    <nz-form-label nzSpan="2">注脚</nz-form-label>
     <nz-form-control nzSpan="10">
-      <input nz-input required placeholder="注脚" [(ngModel)]="item.lore" name="lore" />
+      <input nz-input placeholder="注脚" [(ngModel)]="item.lore" name="lore" />
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
-    <nz-form-label nzRequired nzSpan="2">备注</nz-form-label>
+    <nz-form-label nzSpan="2">备注</nz-form-label>
     <nz-form-control nzSpan="10">
-      <textarea rows="4" nz-input required placeholder="备注" [(ngModel)]="item.notes"
+      <textarea rows="4" nz-input placeholder="备注" [(ngModel)]="item.notes"
                 name="notes"></textarea>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-control nzOffset="2">
-      <button nz-button nzType="primary" nzSize="large" [disabled]="!form.form.valid" type="submit"
-              [nzLoading]="loading"><i nz-icon nzType="upload"></i>保存
+      <button nz-button nzType="primary" nzSize="large" [disabled]="!form.form.valid" type="submit">
+        <i nz-icon nzType="upload"></i>保存
       </button>
     </nz-form-control>
   </nz-form-item>

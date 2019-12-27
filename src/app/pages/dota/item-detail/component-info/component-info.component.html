@@ -1,4 +1,4 @@
-<form nz-form #form="ngForm">
+<form nz-form #form="ngForm" (ngSubmit)="submitForm()">
   <nz-form-item *ngFor="let component of components;let i=index">
     <nz-form-label nzRequired nzSpan="2">{{component.name}}</nz-form-label>
     <nz-form-control nzSpan="2">
@@ -15,22 +15,23 @@
   </nz-form-item>
   <nz-form-item>
     <nz-form-control nzOffset="2">
-      <button nz-button nzType="dashed" nzSize="large" (click)="inputModalVisible = true;inputKey=null">
+      <button nz-button nzType="dashed" nzSize="large" (click)="inputModalVisible = true;inputKey=null" type="button">
         <i nz-icon nzType="plus"></i>添加
       </button>
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
     <nz-form-control nzOffset="2">
-      <button nz-button nzType="primary" nzSize="large" [disabled]="!form.form.valid" type="submit"
-              [nzLoading]="loading"><i nz-icon nzType="upload"></i>保存
+      <button nz-button nzType="primary" nzSize="large" [disabled]="!form.form.valid" type="submit">
+        <i nz-icon nzType="upload"></i>保存
       </button>
     </nz-form-control>
   </nz-form-item>
 </form>
-<nz-modal [(nzVisible)]="inputModalVisible" nzTitle="请选择配件" [nzFooter]="null" (nzOnCancel)="inputModalVisible=false" nzWidth="1200">
+<nz-modal [(nzVisible)]="inputModalVisible" nzTitle="请选择配件" [nzFooter]="null" (nzOnCancel)="inputModalVisible=false"
+          nzWidth="1200">
   <a *ngFor="let item of allItems"
-       class="hero-link" (click)="add(item)">
+     class="hero-link" (click)="add(item)">
     <img [src]="item.img" class="hero-img" alt="{{item.name}}" />
     <span class="hero-name">{{item.name}}</span>
   </a>

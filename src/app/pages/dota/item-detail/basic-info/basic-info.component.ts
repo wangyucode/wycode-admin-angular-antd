@@ -15,13 +15,11 @@ export class BasicInfoComponent implements OnInit {
   @Input()
   isCreate: boolean;
   @Output()
-  saveSuccess = new EventEmitter();
-
-  loading = false;
+  save = new EventEmitter();
 
   types = BASIC_ITEM_TYPES;
 
-  constructor(private dotaService: DotaService, private notification: NzNotificationService) {
+  constructor() {
   }
 
   ngOnInit(): void {
@@ -46,14 +44,7 @@ export class BasicInfoComponent implements OnInit {
   }
 
   submitForm() {
-    this.loading = true;
-    // this.dotaService.setHeroBasic(this.hero).subscribe((result: JsonResult<Hero>) => {
-    //   this.loading = false;
-    //   this.notification.success('成功!', `${result.data.name} 基本信息已保存`);
-    //   this.saveSuccess.emit();
-    // }, () => {
-    //   this.loading = false;
-    // });
+    this.save.emit();
   }
 
 }

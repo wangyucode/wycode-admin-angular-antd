@@ -1,0 +1,26 @@
+<div class="white-background">
+  <nz-steps [nzCurrent]="current">
+    <nz-step nzTitle="基本信息"></nz-step>
+    <nz-step nzTitle="属性信息"></nz-step>
+    <nz-step nzTitle="效果信息"></nz-step>
+    <nz-step nzTitle="配件信息"></nz-step>
+  </nz-steps>
+</div>
+
+<div class="white-background" [ngSwitch]="current">
+  <nz-spin [nzSpinning]="loading">
+    <app-item-basic-info *ngSwitchCase="0"
+                         isCreate="true"
+                         [item]="item"
+                         (save)="current =1"></app-item-basic-info>
+    <app-item-attr-info *ngSwitchCase="1"
+                        (save)="current = 2"
+                        [item]="item"></app-item-attr-info>
+    <app-item-effect-info *ngSwitchCase="2"
+                          [item]="item"
+                          (save)="current=3"></app-item-effect-info>
+    <app-item-component-info *ngSwitchCase="3"
+                             [item]="item"
+                             (save)="save()"></app-item-component-info>
+  </nz-spin>
+</div>

@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DotaItem } from '../../../../service/type';
-import { DotaService } from '../../../../service/dota.service';
 import { KeyValue } from '@angular/common';
 
 
@@ -14,18 +13,27 @@ export class EffectInfoComponent implements OnInit {
   @Input()
   item: DotaItem = {};
   effects: KeyValue<string, string>[] = [];
-  loading = false;
   inputModalVisible = false;
   inputKey = null;
+  @Output()
+  save = new EventEmitter();
 
-  constructor(private dotaService: DotaService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    Object.keys(this.item.desc).forEach((key) => {
-      this.effects.push({ key: key, value: this.item.desc[key] });
-    });
+    if (this.item.desc) {
+      Object.keys(this.item.desc).forEach((key) => {
+        this.effects.push({ key: key, value: this.item.desc[key] });
+      });
+    }
   }
 
+  submitForm(): void {
+    const effects = {};
+    this.effects.forEach(kv => effects[kv.key] = kv.value);
+    this.item.desc = effects;
+    this.save.emit();
+  }
 
 }

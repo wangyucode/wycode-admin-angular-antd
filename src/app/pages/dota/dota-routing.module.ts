@@ -6,6 +6,7 @@ import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { CreateHeroComponent } from './create-hero/create-hero.component';
 import { ItemsComponent } from './itemes/items.component';
 import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { CreateItemComponent } from './create-item/create-item.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,11 @@ const routes: Routes = [
       path: 'item',
       component: ItemDetailComponent,
       data: { breadcrumb: '物品详情' }
+    },
+    {
+      path: 'item/create',
+      component: CreateItemComponent,
+      data: { breadcrumb: '新建物品' }
     }
   ]
 ;
