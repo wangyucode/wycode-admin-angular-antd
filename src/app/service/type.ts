@@ -20,6 +20,11 @@ export interface AppUse {
   use: number;
 }
 
+export interface BlogAccess {
+  path: string;
+  count: number;
+}
+
 export interface ErrorElement {
   path: string;
   method: string;
