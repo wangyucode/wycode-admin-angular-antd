@@ -1,8 +1,7 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { DashboardService } from '../../../service/dashboard.service';
-import { AppUse, JsonResult } from '../../../service/type';
-import { Chart } from '@antv/g2';
-import { View } from '@antv/data-set';
+import { BlogAccess, JsonResult } from '../../../service/type';
+import { AxisLabel, Chart } from '@antv/g2';
 
 
 @Component({
@@ -24,23 +23,17 @@ export class HotBlogComponent implements AfterViewInit {
   }
 
   onQueryChange() {
-    this.service.getBlogAccess(this.day).subscribe((data: JsonResult<AppUse[]>) => {
+    this.service.getBlogAccess(this.day).subscribe((data: JsonResult<BlogAccess[]>) => {
       if (data.success && data.data.length > 0) {
-        const tree = { name: 'root', children: data.data };
-        const dv = new View().source(tree, { type: 'hierarchy' })
-          .transform({
-            field: 'count',
-            type: 'hierarchy.treemap',
-            tile: 'treemapResquarify',
-            as: ['x', 'y']
+        // 注意由于分类轴的顺序是从下往上的，所以数组的数值顺序要从小到大
+        const source = data.data.sort((a: BlogAccess, b: BlogAccess) => a.count - b.count).slice(-20);
+        source.forEach(blogAccess => {
+          this.chart.guide().text({
+            position: [blogAccess.path, blogAccess.count],
+            content: '  ' + blogAccess.count
           });
-        const nodes = dv.getAllNodes();
-        nodes.map((node: { name: string; data: { path: string; count: number }; value: any }) => {
-          node.name = node.data.path;
-          node.value = node.data.count;
-          return node;
         });
-        this.chart.source(nodes);
+        this.chart.source(source);
         this.chart.forceFit();
         this.chart.render();
       }
@@ -51,17 +44,18 @@ export class HotBlogComponent implements AfterViewInit {
     this.chart = new Chart({
       container: 'c3',
       height: 320,
-      padding: [0, 0, 0, 0]
+      padding: [0, 0, 12, 96]
     });
-    this.chart.legend(false);
-    this.chart.tooltip({ showTitle: false });
-    this.chart.axis(false);
-    this.chart.polygon().position('x*y').color('name').tooltip('name*value', (name, value) => {
-      return {
-        name,
-        value: `访问量：${value}`
-      };
-    });
+    this.chart.axis('count', false);
+    const label: AxisLabel = {
+      formatter(text: string): string {
+        const pattern = new RegExp('/\\d{4}-\\d{2}-\\d{2}-(\\S+)\\.html');
+        return pattern.exec(text)[1];
+      }
+    };
+    this.chart.axis('path', { label });
+    this.chart.coord('rect').transpose();
+    this.chart.interval().position('path*count');
   }
 
 }

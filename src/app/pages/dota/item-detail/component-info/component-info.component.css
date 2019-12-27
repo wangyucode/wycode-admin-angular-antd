@@ -1,17 +1,18 @@
-nz-collapse {
-  margin-bottom: 24px;
+nz-form-item{
+  display: flex;
+  align-items: center;
 }
 
-.hero-grid {
-  min-height: 96px;
+.btn-delete{
+  margin-left: 12px;
 }
 
 .hero-link {
   position: relative;
   display: inline-block;
-  width: 156px;
-  height: 90px;
-  margin: 8px;
+  width: 64px;
+  height: 48px;
+  margin: 4px;
 }
 
 .hero-img {
@@ -24,6 +25,7 @@ nz-collapse {
   position: absolute;
   bottom: 0;
   left: 0;
+  font-size: 12px;
   width: 100%;
   padding: 4px 8px;
   color: #eee;

@@ -11,6 +11,13 @@ import { DetailInfoComponent } from './hero-detail/detail-info/detail-info.compo
 import { AbilityInfoComponent } from './hero-detail/ability-info/ability-info.component';
 import { AbilityFormComponent } from './hero-detail/ability-info/ability-form/ability-form.component';
 import { CreateHeroComponent } from './create-hero/create-hero.component';
+import { ItemsComponent } from './itemes/items.component';
+import { ItemDetailComponent } from './item-detail/item-detail.component';
+import { BasicInfoComponent as ItemInfoComponent } from './item-detail/basic-info/basic-info.component';
+import { AttrInfoComponent } from './item-detail/attr-info/attr-info.component';
+import { EffectInfoComponent } from './item-detail/effect-info/effect-info.component';
+import { ComponentInfoComponent } from './item-detail/component-info/component-info.component';
+import { CreateItemComponent } from './create-item/create-item.component';
 
 
 @NgModule({
@@ -23,7 +30,14 @@ import { CreateHeroComponent } from './create-hero/create-hero.component';
     DetailInfoComponent,
     AbilityInfoComponent,
     AbilityFormComponent,
-    CreateHeroComponent
+    CreateHeroComponent,
+    ItemsComponent,
+    ItemDetailComponent,
+    ItemInfoComponent,
+    AttrInfoComponent,
+    EffectInfoComponent,
+    ComponentInfoComponent,
+    CreateItemComponent
   ],
   imports: [
     SharedModule,
