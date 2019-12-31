@@ -1,8 +1,8 @@
 <form nz-form #form="ngForm" (ngSubmit)="submitForm()">
   <nz-form-item>
-    <nz-form-label nzRequired nzSpan="2">其它昵称</nz-form-label>
+    <nz-form-label nzSpan="2">其它昵称</nz-form-label>
     <nz-form-control nzSpan="5">
-      <input nz-input required placeholder="其它昵称" [(ngModel)]="heroDetail.otherName" name="otherName" />
+      <input nz-input placeholder="其它昵称" [(ngModel)]="heroDetail.otherName" name="otherName" />
     </nz-form-control>
   </nz-form-item>
   <nz-form-item>
