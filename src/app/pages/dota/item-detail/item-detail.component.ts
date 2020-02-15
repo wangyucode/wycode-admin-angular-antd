@@ -46,7 +46,7 @@ export class ItemDetailComponent implements OnInit {
   save() {
     this.loading = true;
     this.dotaService.setItem(this.item).subscribe(() => {
-      this.onBack();
+      this.loading = false;
     }, () => this.loading = false);
   }
 }
