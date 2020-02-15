@@ -15,16 +15,16 @@
 <nz-spin [nzSpinning]="loading">
   <nz-tabset>
     <nz-tab nzTitle="基本">
-      <app-item-basic-info [item]="item"></app-item-basic-info>
+      <app-item-basic-info [item]="item" (save)="save()"></app-item-basic-info>
     </nz-tab>
     <nz-tab nzTitle="属性" [nzDisabled]="loading">
-      <app-item-attr-info *ngIf="!loading" [item]="item"></app-item-attr-info>
+      <app-item-attr-info *ngIf="!loading" [item]="item" (save)="save()"></app-item-attr-info>
     </nz-tab>
     <nz-tab nzTitle="效果" [nzDisabled]="loading">
-      <app-item-effect-info *ngIf="!loading" [item]="item"></app-item-effect-info>
+      <app-item-effect-info *ngIf="!loading" [item]="item" (save)="save()"></app-item-effect-info>
     </nz-tab>
     <nz-tab nzTitle="配件" [nzDisabled]="loading">
-      <app-item-component-info *ngIf="!loading" [item]="item"></app-item-component-info>
+      <app-item-component-info *ngIf="!loading" [item]="item" (save)="save()"></app-item-component-info>
     </nz-tab>
   </nz-tabset>
 </nz-spin>
