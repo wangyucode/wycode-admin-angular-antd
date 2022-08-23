@@ -1,5 +1,11 @@
-# 🔧https://wycode.cn/admin/  [![Build Status](https://travis-ci.com/wangyucode/wycode-admin-angular-antd.svg?branch=master)](https://travis-ci.com/wangyucode/wycode-admin-angular-antd)
-This project is an admin website: [https://wycode.cn/admin/](https://wycode.cn/admin/)
+# ~~🔧https://wycode.cn/admin/  [![Build Status](https://travis-ci.com/wangyucode/wycode-admin-angular-antd.svg?branch=master)](https://travis-ci.com/wangyucode/wycode-admin-angular-antd)~~
+
+**This project is no longer maintained, I am using nextJS rebuild it here:**
+ - repository: https://github.com/wangyucode/wycode-next
+ - online: https://wycode.cn/admin.html
+
+
+~~This project is an admin website: [https://wycode.cn/admin/](https://wycode.cn/admin/)~~
 
 It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.20.
 
